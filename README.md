@@ -1,6 +1,6 @@
-# Gitmoji commitlint template
+# Gitmoji Commitlint Guide
 
-此仓库示例如何引入 commitlint 并使用 Gitmoji 作为 commit 规范。
+此仓库示例如何引入 commitlint 并使用 Gitmoji 作为 Git Commit 规范。
 
 ## 环境依赖
 
@@ -128,7 +128,7 @@ Footer
 6. 完成后可以自测一下是否生效，当提交的 commit message 不符合规范时会中止操作并提示错误信息，例如：
 
     ```blank
-    ➜  gitmoji_commitlint_template git:(master) ✗ git commit -m "📝 Update"
+    ➜  gitmoji_commitlint_guide git:(master) ✗ git commit -m "📝 Update"
     ⧗   input: 📝 Update
     ✖   header must not be shorter than 15 characters, current length is 9 [header-min-length]
 
@@ -136,8 +136,8 @@ Footer
     ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 
     husky - commit-msg hook exited with code 1 (error)
-    ➜  gitmoji_commitlint_template git:(master) ✗
-    ➜  gitmoji_commitlint_template git:(master) ✗ git commit -m "Update README.md"
+    ➜  gitmoji_commitlint_guide git:(master) ✗
+    ➜  gitmoji_commitlint_guide git:(master) ✗ git commit -m "Update README.md"
     ⧗   input: Update README.md
     ✖   subject may not be empty [subject-empty]
     ✖   type may not be empty [type-empty]
@@ -146,9 +146,9 @@ Footer
     ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 
     husky - commit-msg hook exited with code 1 (error)
-    ➜  gitmoji_commitlint_template git:(master) ✗
-    ➜  gitmoji_commitlint_template git:(master) ✗ git commit -m "📝 Update README.md"
+    ➜  gitmoji_commitlint_guide git:(master) ✗
+    ➜  gitmoji_commitlint_guide git:(master) ✗ git commit -m "📝 Update README.md"
     [master 8a186ca] 📝 Update README.md
     1 file changed, 1 insertion(+)
-    ➜  gitmoji_commitlint_template git:(master) ✗
+    ➜  gitmoji_commitlint_guide git:(master) ✗
     ```
