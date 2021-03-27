@@ -123,3 +123,4 @@ Footer
     };
     ```
 
+4. 以上步骤都完成并提交推送到 git remote 后，建议在项目的 **构建脚本** 或者其他开发者必经的地方（比如 Xcode 的 PreBuild RunScript Build Phases 等），加入检测 commitlint node module 的脚本，避免项目组部分成员没有安装 commitlint。此仓库提供了一个简单的脚本，可以挂在你的构建脚本中，具体参考 `./run.py`
