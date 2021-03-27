@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# git fetch origin --prune --prune-tags
+python3 ./run.py
