@@ -51,9 +51,22 @@ Footer
 
 - [所有相关工具](https://gitmoji.dev/related-tools)
 
-1. [Gitmoji App for macOS](https://github.com/lovetodream/gitimoji) macOS 系统推荐安装此 App。
-2. [Gitmoji Web page](https://gitmoji.dev) 搜索框过滤后 (比如搜 feat 即可过滤出对应的 ✨ Gitmoji) 点击对应的 Gitmoji 图标即可直接拷贝 emoji 到剪贴板。
+1. [Gitmoji App for macOS](https://github.com/lovetodream/gitimoji)
+
+    macOS 系统推荐安装此 App。
+
+    **注意，安装后需要打开设置，Value to copy 选择 Emoji 本体**
+
+    ![gitmoji-macos-setting.png](https://i.loli.net/2021/03/27/5fcQaCUbVuKnFdk.png)
+
+2. [Gitmoji Web page](https://gitmoji.dev)
+
+    搜索框过滤后 (比如搜 feat 即可过滤出对应的 ✨ Gitmoji)
+
+    点击对应的 Gitmoji 图标即可直接拷贝 emoji 到剪贴板。
+
 3. [Gitmoji Plugin for Chrome](https://github.com/johannchopin/gitmoji-browser-extension)
+
 4. [Gitmoji Plugin for VSCode](https://github.com/vtrois/gitmoji-vscode)
 
 ## 接入 CommitLint 步骤
