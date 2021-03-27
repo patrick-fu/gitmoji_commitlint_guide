@@ -78,8 +78,8 @@ Footer
     #!/bin/sh
     . "$(dirname "$0")/_/husky.sh"
 
-    git fetch origin --prune --prune-tags
-    python3 ./build.py
+    git fetch origin --prune --prune-tags # 拉取 Origin 的最新提交，并裁剪本地多余的 tags
+    python3 ./run.py # 执行构建脚本，若构建失败（比如中途 sys.exit(1) ）则此次 commit 会被中止
     ```
 
 4. 修改 commitlint 的配置，改为上面所说的 Gitmoji 规范。在项目根目录下添加一个 `.commitlintrc.js` 文件，内容如下，你可以从此仓库中拷贝该文件到你的仓库目录下并提交到 git 上。
@@ -123,4 +123,32 @@ Footer
     };
     ```
 
-4. 以上步骤都完成并提交推送到 git remote 后，建议在项目的 **构建脚本** 或者其他开发者必经的地方（比如 Xcode 的 PreBuild RunScript Build Phases 等），加入检测 commitlint node module 的脚本，避免项目组部分成员没有安装 commitlint。此仓库提供了一个简单的脚本，可以挂在你的构建脚本中，具体参考 `./run.py`
+5. 以上步骤都完成并提交推送到 git remote 后，建议在项目的 **构建脚本** 或者其他开发者必经的地方（比如 Xcode 的 PreBuild RunScript Build Phases 等），加入检测 commitlint node module 的脚本，以确保项目组的成员都安装上 commitlint。此仓库提供了一个简单的脚本，可以挂在你的构建脚本中，具体参考 `./run.py`
+
+6. 完成后可以自测一下是否生效，当提交的 commit message 不符合规范时会中止操作并提示错误信息，例如：
+
+    ```blank
+    ➜  gitmoji_commitlint_template git:(master) ✗ git commit -m "📝 Update"
+    ⧗   input: 📝 Update
+    ✖   header must not be shorter than 15 characters, current length is 9 [header-min-length]
+
+    ✖   found 1 problems, 0 warnings
+    ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+
+    husky - commit-msg hook exited with code 1 (error)
+    ➜  gitmoji_commitlint_template git:(master) ✗
+    ➜  gitmoji_commitlint_template git:(master) ✗ git commit -m "Update README.md"
+    ⧗   input: Update README.md
+    ✖   subject may not be empty [subject-empty]
+    ✖   type may not be empty [type-empty]
+
+    ✖   found 2 problems, 0 warnings
+    ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
+
+    husky - commit-msg hook exited with code 1 (error)
+    ➜  gitmoji_commitlint_template git:(master) ✗
+    ➜  gitmoji_commitlint_template git:(master) ✗ git commit -m "📝 Update README.md"
+    [master 8a186ca] 📝 Update README.md
+    1 file changed, 1 insertion(+)
+    ➜  gitmoji_commitlint_template git:(master) ✗
+    ```
