@@ -1,20 +1,23 @@
 # Gitmoji Commitlint Guide
 
-此仓库示例如何引入 commitlint 并使用 Gitmoji 作为 Git Commit 规范。
+## [English](README.md) | [中文](README_zh.md)
 
-## 环境依赖
+This repository demonstrate how to install commitlint and use Gitmoji as the Git Commit specification.
+
+## Environmental dependence
 
 npm@10.22 or higher.
 
-## 注意
+## Note
 
-下面的 `Commit 规范` 段落建议拷贝到你的项目仓库的 README 中，然后安装步骤请参考 `接入 CommitLint 步骤` 段落。
+The following `Commit Specification` paragraph is recommended to be copied to the `README` of your project repository,
+and then the installation steps please refer to the paragraph `CommitLint Install Steps`.
 
-## Commit 规范
+## Commit Specification
 
-> 需要先在项目根目录下执行 `npm install` 以安装 `commitlint`, `husky` 工具（用于规范 Git commit message）。
+> You need to execute `npm install` in this project root directory to install `commitlint`, `husky` tools (used to standardize Git commit messages).
 
-本项目使用 [Gitmoji](https://gitmoji.dev) 作为 Git commit message 规范，规则如下：
+This project uses [Gitmoji](https://gitmoji.dev) as the Git commit message specification, and the rules are as follows:
 
 ```txt
 emoji subject(#ID)
@@ -24,19 +27,19 @@ BLANK LINE
 Footer
 ```
 
-具体规则如下：
+The specific rules are as follows:
 
-1. Commit Message 必须以一个实际 emoji 字符（非 gitmoji code）开头。
-2. **一个 Commit 只做一件事** （一个简单的判断标准是，Commit Message 的标题要能完全概括出本次提交的所有改动）
-3. Header 是必需的，建议使用英文，首字母大写，Header 句末不要加句号；Body 和 Footer 可以省略。
-4. Header 必须只能包含一个 type，type 可用的类型请查阅 [Gitmoji](https://gitmoji.dev) type 类型。
-5. Header 长度应当在 15 到 100 个字符之间。
-6. 如 Commit 解决 Issue 在 Header 最后请以 (#ID) 结尾。同时在 Body 中关闭 Issue。
-7. 在 Body 中使用 Markdown 语法进行书写.
-8. 动词使用一般现在时。（ "Add feature" 而不是 "Added feature" ）
-9. 使用祈使句语法。（ "Move cursor to…" 而不是 "Moves cursor to…" ）
-10. 在 Body 中说明「是什么」、「为什么」与「怎么做」。
-11. 所有的 WIP ( Work In Progress ) Commits 必须要有 WIP 🚧 的 Emoji 。
+1. Commit Message must start with an actual emoji UTF-8 character (not gitmoji code).
+2. **A Commit does only one thing** (A simple criterion is that the title of the Commit Message must be able to fully summarize all the changes in this commit)
+3. Header is required. It is recommended to use English, capitalize the first letter, and do not add a period at the end of the Header sentence; Body and Footer can be omitted.
+4. Header must contain only one type. Please refer to [Gitmoji](https://gitmoji.dev) for the available types.
+5. The header length should be between **15** and **100** characters.
+6. If Commit resolves the issue, please end with (#ID) at the end of the header, and then close the Issue in the Body.
+7. Use Markdown grammar to write in the body.
+8. The verb uses the general present tense. ("Add feature" instead of "Added feature")
+9. Use imperative grammar. ("Move cursor to..." instead of "Moves cursor to...")
+10. Explain "what", "why" and "how" in the body.
+11. All WIP (Work In Progress) Commits must have WIP 🚧 Emoji.
 
 ```sh
 # Good
@@ -45,57 +48,59 @@ Footer
 🚧 Add temporary testing code
 ```
 
-每个 Gitmoji 都有其特定的含义，比如 `✨ -> Introduce new features`, `📝 -> Add or update documentation`, `🐛 -> Fix a bug` 请根据当次 commit 中做的事情选择合适的 Gitmoji
+Each Gitmoji has its specific meaning, such as `✨ -> Introduce new features`, `📝 -> Add or update documentation`, `🐛 -> Fix a bug`
 
-> 建议安装 Gitmoji App 或插件，方便搜索并拷贝 emoji。（也可以直接在网页里点击拷贝 emoji）
+Please choose the appropriate one according to what you did in the commit Gitmoji
 
-- [所有相关工具](https://gitmoji.dev/related-tools)
+> It is recommended to install the Gitmoji App or plug-in for easy search and copy emoji. (You can also click to copy emoji directly on the web page)
+
+- [All related tools](https://gitmoji.dev/related-tools)
 
 1. [Gitmoji App for macOS](https://github.com/lovetodream/gitimoji)
 
-    macOS 系统推荐安装此 App。
+    It is recommended to install this app on macOS.
 
-    **注意，安装后需要打开设置，Value to copy 选择 Emoji 本体**
+    **Note that you need to open settings after installation, and select "Emoji" as "Value to copy"**
 
     ![gitmoji-macos-setting.png](https://i.loli.net/2021/03/27/5fcQaCUbVuKnFdk.png)
 
 2. [Gitmoji Web page](https://gitmoji.dev)
 
-    搜索框过滤后 (比如搜 feat 即可过滤出对应的 ✨ Gitmoji)
+    After the search box is filtered (for example, search `feat` to filter out the corresponding ✨ Gitmoji)
 
-    点击对应的 Gitmoji 图标即可直接拷贝 emoji 到剪贴板。
+    Click the corresponding Gitmoji icon to directly copy the emoji to the clipboard.
 
 3. [Gitmoji Plugin for Chrome](https://github.com/johannchopin/gitmoji-browser-extension)
 
 4. [Gitmoji Plugin for VSCode](https://github.com/vtrois/gitmoji-vscode)
 
-## 接入 CommitLint 步骤
+## CommitLint Install Steps
 
-1. 在仓库根目录下执行以下命令以安装 node 依赖库，并生成 `package.json` 和 `package-lock.json` 文件。（需要将这两个文件提交到 git 上，之后其他开发者只需执行一句 `npm i` 即可）
+1. Execute the following commands in the repo root directory to install node dependent libraries and generate `package.json` and `package-lock.json` files. (You need to commit these two files to git, then other developers only need to execute `npm install`)
 
     ```sh
     npm install --save-dev @commitlint/{config-conventional,cli} husky@5.2.0
     ```
 
-    > 安装完成后记得把 `node_modules` 目录添加到 `.gitignore` 喔
+    > Remember to add the `node_modules` directory to `.gitignore` after installation
 
-2. 在仓库根目录下执行以下命令以初始化 husky 并创建 husky (git hook) 配置文件，此步骤会生成 `.husky/commit-msg` 文件，也需要提交到 git 上。此步骤是为了 hook git commit 时，执行 commitlint。
+2. Execute the following commands in the repo root directory to initialize husky and create a husky (git hook) configuration file. This step will generate a `.husky/commit-msg` file, which also needs to be committed to git. This step is to execute commitlint when hook git commit.
 
     ```sh
     npx husky init && npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
     ```
 
-3. 修改 husky 自动生成的 `.husky/pre-commit` 文件，在上一步执行 husky init 过程中，husky 会自动创建该文件以便让用户自行修改，默认是 `npm test`，对于非 npm 管理的项目而言，无需执行该命令，我们可以直接删除此文件，或者可以执行任何你希望在 pre commit 期间执行的操作，比如可以执行一下单元测试，不通过不给 commit。比如改为以下内容：
+3. Modify the `.husky/pre-commit` file automatically generated by husky. During the execution of `husky init` in the previous step, husky will automatically create this file for users to modify by themselves. The default is to execute `npm test`. For non-npm-managed projects, In other words, there is no need to execute this command, you can delete this file directly, or you can perform any operation you want to perform pre commit, such as performing a unit test. For example, change to the following:
 
     ```sh
     #!/bin/sh
     . "$(dirname "$0")/_/husky.sh"
 
-    git fetch origin --prune --prune-tags # 拉取 Origin 的最新提交，并裁剪本地多余的 tags
-    python3 ./run.py # 执行构建脚本，若构建失败（比如中途 sys.exit(1) ）则此次 commit 会被中止
+    git fetch origin --prune --prune-tags # Pull Origin's latest submission and prune local redundant tags
+    python3 ./run.py # Execute the build script, if the build fails (such as sys.exit(1) in the middle), the commit will be aborted
     ```
 
-4. 修改 commitlint 的配置，改为上面所说的 Gitmoji 规范。在项目根目录下添加一个 `.commitlintrc.js` 文件，内容如下，你可以从此仓库中拷贝该文件到你的仓库目录下并提交到 git 上。
+4. Modify the configuration of commitlint to the Gitmoji specification mentioned above. Add a `.commitlintrc.js` file in the root directory of the project with the following content. You can copy the file from this repository to your repository directory and submit it to git.
 
     ```js
     // The following emoji array is obtained from this json,
@@ -136,9 +141,9 @@ Footer
     };
     ```
 
-5. 以上步骤都完成并提交推送到 git remote 后，建议在项目的 **构建脚本** 或者其他开发者必经的地方（比如 Xcode 的 PreBuild RunScript Build Phases 等），加入检测 commitlint node module 的脚本，以确保项目组的成员都安装上 commitlint。此仓库提供了一个简单的脚本，可以挂在你的构建脚本中，具体参考 `./run.py`
+5. After the above steps are completed and committed && pushed to git remote, it is recommended to add a script to detect the `commitlint` node module in the **build script** of the project or other places where developers must pass (such as Xcode's PreBuild RunScript Build Phases, etc.) to make sure that all members of the project team have `commitlint` installed. This repository provides a simple script that can be hung in your build script. For details, please refer to `./run.py`
 
-6. 完成后可以自测一下是否生效，当提交的 commit message 不符合规范时会中止操作并提示错误信息，例如：
+6. After completion, you can self-test whether it is effective. When the committed message does not meet the specifications, the operation will be aborted and an error message will be displayed, for example:
 
     ```blank
     ➜  gitmoji_commitlint_guide git:(master) ✗ git commit -m "📝 Update"
