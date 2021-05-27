@@ -76,7 +76,7 @@ Footer
 1. 在仓库根目录下执行以下命令以安装 node 依赖库，并生成 `package.json` 和 `package-lock.json` 文件。（需要将这两个文件提交到 git 上，之后其他开发者只需执行一句 `npm install` 即可）
 
     ```sh
-    npm install --save-dev @commitlint/{config-conventional,cli} husky@5.2.0
+    npm install --save-dev @commitlint/{config-conventional,cli} husky
     ```
 
     > 安装完成后记得把 `node_modules` 目录添加到 `.gitignore` 喔

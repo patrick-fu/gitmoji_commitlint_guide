@@ -79,7 +79,7 @@ Please choose the appropriate one according to what you did in the commit Gitmoj
 1. Execute the following commands in the repo root directory to install node dependent libraries and generate `package.json` and `package-lock.json` files. (You need to commit these two files to git, then other developers only need to execute `npm install`)
 
     ```sh
-    npm install --save-dev @commitlint/{config-conventional,cli} husky@5.2.0
+    npm install --save-dev @commitlint/{config-conventional,cli} husky
     ```
 
     > Remember to add the `node_modules` directory to `.gitignore` after installation
