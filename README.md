@@ -56,13 +56,11 @@ Please choose the appropriate one according to what you did in the commit Gitmoj
 
 - [All related tools](https://gitmoji.dev/related-tools)
 
-1. [Gitmoji App for macOS](https://github.com/lovetodream/gitimoji)
+1. [Gitmoji App for macOS / Windows / Linux](https://github.com/patrick-fu/GitmojiApp)
 
-    It is recommended to install this app on macOS.
+    It is recommended to install this app on desktop.
 
-    **Note that you need to open settings after installation, and select "Emoji" as "Value to copy"**
-
-    ![gitmoji-macos-setting.png](https://i.loli.net/2021/03/27/5fcQaCUbVuKnFdk.png)
+    ![gitmojiapp.png](./gitmojiapp.png)
 
 2. [Gitmoji Web page](https://gitmoji.dev)
 

@@ -53,13 +53,11 @@ Footer
 
 - [所有相关工具](https://gitmoji.dev/related-tools)
 
-1. [Gitmoji App for macOS](https://github.com/lovetodream/gitimoji)
+1. [Gitmoji App for macOS / Windows / Linux](https://github.com/patrick-fu/GitmojiApp)
 
-    macOS 系统推荐安装此 App。
+    macOS / Windows / Linux 系统推荐安装此 App。
 
-    **注意，安装后需要打开设置，Value to copy 选择 Emoji 本体**
-
-    ![gitmoji-macos-setting.png](https://i.loli.net/2021/03/27/5fcQaCUbVuKnFdk.png)
+    ![gitmojiapp.png](./gitmojiapp.png)
 
 2. [Gitmoji Web page](https://gitmoji.dev)
 
